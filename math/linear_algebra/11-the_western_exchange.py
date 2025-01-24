@@ -1,11 +1,7 @@
 #!/usr/bin/env python3
-"""
-function that performs element-wise add, subtract, multiply & division
-"""
+"""Creates a function that transposes a 2D matrix"""
 
 
-def np_elementwise(mat1, mat2):
-    """
-    Adds, subtracts, multiplies, and divides two matrices element-wise
-    """
-    return (mat1 + mat2, mat1 - mat2, mat1 * mat2, mat1 / mat2)
+def np_transpose(matrix):
+    """Returns the transpose of a 2D matrix"""
+    return matrix.transpose()
