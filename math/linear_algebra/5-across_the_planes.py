@@ -1,15 +1,10 @@
 #!/usr/bin/env python3
-import numpy as np
+"""Creates a function that adds two matrices element-wise"""
+
+
 def add_matrices2D(mat1, mat2):
-    res1 = np.array(mat1)
-    res2 = np.array(mat2)
-    if res1.shape == res2.shape:
-        return res1 + res2
-    else:
+    """adds two matrices"""
+    if len(mat1) != len(mat2) or len(mat1[0]) != len(mat2[0]):
         return None
-mat1 = [[1, 2], [3, 4]]
-mat2 = [[5, 6], [7, 8]]
-print(add_matrices2D(mat1, mat2))
-print(mat1)
-print(mat2)
-print(add_matrices2D(mat1, [[1, 2, 3], [4, 5, 6]]))
+    return [[mat1[i][j] + mat2[i][j] for j in range(len(mat1[0]))]
+            for i in range(len(mat1))]

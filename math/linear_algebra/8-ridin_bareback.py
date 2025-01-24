@@ -1,16 +1,11 @@
 #!/usr/bin/env python3
-import numpy as np
+"""Creates a function that performs matrix multiplication"""
+
+
 def mat_mul(mat1, mat2):
-    res1 = np.array(mat1)
-    res2 = np.array(mat2)
-    if list(res1.shape)[-1] == list(res2.shape)[0] :
-        return res1 @ res2
-    
-    else:
+    """Performs matrix multiplication"""
+    if len(mat1[0]) != len(mat2):
         return None
-mat1 = [[1, 2],
-        [3, 4],
-        [5, 6]]
-mat2 = [[1, 2, 3, 4],
-        [5, 6, 7, 8]]
-print(mat_mul(mat1, mat2))
+    return [[sum(a * b for a, b in zip(mat1_row, mat2_col))
+            for mat2_col in zip(*mat2)]
+            for mat1_row in mat1]

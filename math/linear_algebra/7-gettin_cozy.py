@@ -1,17 +1,13 @@
 #!/usr/bin/env python3
-import numpy as np
+"""Creates a function that concatenates two matrices along a specific axis"""
+
 
 def cat_matrices2D(mat1, mat2, axis=0):
-    return np.concatenate((np.array(mat1),np.array(mat2)),axis=axis)
-mat1 = [[1, 2], [3, 4]]
-mat2 = [[5, 6]]
-mat3 = [[7], [8]]
-mat4 = cat_matrices2D(mat1, mat2)
-mat5 = cat_matrices2D(mat1, mat3, axis=1)
-print(mat4)
-print(mat5)
-mat1[0] = [9, 10]
-mat1[1].append(5)
-print(mat1)
-print(mat4)
-print(mat5)
+    """Concatenates two matrices along a specific axis"""
+    if axis == 0 and len(mat1[0]) != len(mat2[0]):
+        return None
+    if axis == 1 and len(mat1) != len(mat2):
+        return None
+    if axis == 0:
+        return [row[:] for row in mat1] + [row[:] for row in mat2]
+    return [mat1[i] + mat2[i] for i in range(len(mat1))]
